@@ -6,12 +6,12 @@ def create_job(job):
     return data
 
 
-def get_all_jobs():
+def get_jobs():
     data = supabase.table("jobs").select("*").execute()
     return data.data
 
 
-def get_user_jobs(user_id):
+def get_jobs(user_id):
     data = supabase.table("jobs").select("*").eq("user_id", user_id).execute()
     return data.data
 
