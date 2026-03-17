@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 240 6% 4%;
+    --foreground: 240 5% 84%;
+
+    --card: 240 5% 7%;
+    --card-foreground: 240 5% 84%;
+
+    --popover: 240 5% 7%;
+    --popover-foreground: 240 5% 84%;
+
+    --primary: 190 95% 50%;
+    --primary-foreground: 240 6% 4%;
+
+    --secondary: 262 80% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 4% 14%;
+    --muted-foreground: 240 5% 46%;
+
+    --accent: 190 95% 50%;
+    --accent-foreground: 240 6% 4%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100% / 0.04;
+    --input: 0 0% 100% / 0.06;
+    --ring: 190 95% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 5% 5%;
+    --sidebar-foreground: 240 5% 64%;
+    --sidebar-primary: 190 95% 50%;
+    --sidebar-primary-foreground: 240 6% 4%;
+    --sidebar-accent: 0 0% 100% / 0.04;
+    --sidebar-accent-foreground: 240 5% 84%;
+    --sidebar-border: 0 0% 100% / 0.04;
+    --sidebar-ring: 190 95% 50%;
+
+    /* Custom tokens */
+    --surface: 240 5% 7%;
+    --surface-hover: 240 5% 10%;
+    --cyan-glow: 190 95% 50%;
+    --violet-accent: 262 80% 55%;
+    --emerald-accent: 160 84% 39%;
+    --amber-accent: 38 92% 50%;
+    --red-accent: 0 72% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(0 0% 100% / 0.08);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(0 0% 100% / 0.15);
+  }
+}
+
+@layer components {
+  .glass-surface {
+    @apply backdrop-blur-xl border border-white/[0.04];
+    background: hsl(var(--surface));
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03) inset, 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-surface-hover {
+    @apply transition-all duration-200;
+  }
+  .glass-surface-hover:hover {
+    border-color: hsl(0 0% 100% / 0.1);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset, 0 24px 48px -12px rgba(0, 0, 0, 0.6);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px -4px hsl(190 95% 50% / 0.3);
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 20px -4px hsl(262 80% 55% / 0.3);
+  }
+
+  .status-badge {
+    @apply px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border;
+  }
+
+  .status-applied {
+    @apply bg-cyan-500/10 text-cyan-400 border-cyan-500/20;
+  }
+
+  .status-saved {
+    @apply bg-zinc-500/10 text-zinc-400 border-zinc-500/20;
+  }
+
+  .status-interview {
+    @apply bg-violet-500/10 text-violet-400 border-violet-500/20;
+  }
+
+  .status-expired {
+    @apply bg-red-500/10 text-red-400 border-red-500/20;
+  }
+
+  .input-field {
+    @apply w-full bg-white/[0.03] border border-white/[0.06] rounded-xl px-4 py-2.5 text-sm text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 focus:border-cyan-500/30 transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-xl transition-all duration-200 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-white/[0.05] hover:bg-white/[0.1] text-zinc-200 text-sm font-medium rounded-xl transition-all duration-200 border border-white/[0.06];
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 hover:bg-white/[0.05] text-zinc-400 hover:text-zinc-200 text-sm font-medium rounded-xl transition-all duration-200;
+  }
+}
